@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import DayList from "./DayList";
+import InterviewerList from "./InterviewerList";
 
 import "components/Application.scss";
 
@@ -19,9 +20,22 @@ const days = [
     name: "Wednesday",
     spots: 0,
   },
+  {
+    id: 4,
+    name: "Thursday",
+    spots: 3,
+  },
+  {
+    id: 5,
+    name: "Friday",
+    spots: 1,
+  }
 ];
 
 export default function Application(props) {
+  
+  const [day, setDay] = useState("Monday")
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -34,8 +48,8 @@ export default function Application(props) {
         <nav className="sidebar__menu">
           <DayList
             days={days}
-            day={"Monday"}
-            setDay={(day) => console.log(day)}
+            day={day}
+            setDay={setDay}
           />
         </nav>
         <img
