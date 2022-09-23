@@ -13,6 +13,16 @@ const CONFIRM = "CONFIRM";
 
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name, 
+      interviewer
+    };
+    props.bookInterview(props.id, interview)
+    console.log("id, interview: ", props.id, interview)
+  }
+
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -28,7 +38,7 @@ export default function Appointment(props) {
           <Form 
             interviewers={props.interviewers}
             onCancel={() => back()}
-            onSave={() => transition(CONFIRM)}
+            onSave={save}
           />
         }
       </Fragment>
