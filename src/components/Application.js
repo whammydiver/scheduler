@@ -43,7 +43,6 @@ export default function Application() {
         };
         setState({ ...state, appointments });
       })
-      .catch(err => console.log(err))
   }
 
   function cancelInterview(id) {
@@ -59,7 +58,6 @@ export default function Application() {
       };
       setState({...state, appointments })
       })
-      .catch(err => console.log(err))
   }
 
   const appointmentsArray = dailyAppointments.map((appointment) => {
