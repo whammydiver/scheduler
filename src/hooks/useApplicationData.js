@@ -6,19 +6,15 @@ export default function useApplicationData() {
 
   function remainingSpots(dayObject, appointments) {
     let count = 0;
-    for (let x = dayObject.appointments[0]; x <= dayObject.appointments[4]; x++) {
+    for (let x = dayObject.appointments[0]; x <= dayObject.appointments[dayObject.appointments.length -1]; x++) {
       if (!appointments[x].interview) {
         count += 1;
       }
-      console.log("count in loop: ", count)
     }
-    console.log("count: ", count)
     return count;
   }
 
   function newDays(id, appointments) {
-    const dayIndex = Math.floor((id - 1) / 5);
-    console.log("state.days[dayIndex]:", state.days[dayIndex]);
     const newDaysArray = state.days.map((day) => {
       if (day.appointments.includes(id)) {
         const spots = remainingSpots(day, appointments)
@@ -26,7 +22,6 @@ export default function useApplicationData() {
       }
       return day;
     })
-    console.log("newDaysArray: ", newDaysArray)
     return newDaysArray;
   }
 
