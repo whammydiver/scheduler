@@ -12,6 +12,7 @@ function InterviewerList(props) {
       avatar={interviewer.avatar}
       setInterviewer={() => props.onChange(interviewer.id)}
       selected={props.interviewer === interviewer.id}
+      data-testid="interviewerListItem"
     />
   ));
   return <section className="interviewers">
