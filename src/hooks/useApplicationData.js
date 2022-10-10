@@ -6,7 +6,7 @@ export default function useApplicationData() {
 
   function remainingSpots(dayObject, appointments) {
     let count = 0;
-    for (let x = dayObject.appointments[0]; x <= dayObject.appointments[dayObject.appointments.length -1]; x++) {
+    for (let x = dayObject.appointments[0]; x <= dayObject.appointments[dayObject.appointments.length - 1]; x++) {
       if (!appointments[x].interview) {
         count += 1;
       }
@@ -71,7 +71,7 @@ export default function useApplicationData() {
           ...state.appointments,
           [id]: appointment
         };
-        const days = newDays(id, appointments); 
+        const days = newDays(id, appointments);
         setState(prev => ({ ...prev, appointments, days }))
       })
   }

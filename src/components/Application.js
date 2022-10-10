@@ -20,15 +20,15 @@ export default function Application() {
   const appointments = getAppointmentsForDay(state, state.day).map(
     appointment => {
       return (
-        <Appointment 
-          key={appointment.id} 
-          {...appointment} 
-          interview={getInterview(state, appointment.interview)} 
-          interviewers={interviewers} 
-          bookInterview={bookInterview} 
+        <Appointment
+          key={appointment.id}
+          {...appointment}
+          interview={getInterview(state, appointment.interview)}
+          interviewers={interviewers}
+          bookInterview={bookInterview}
           cancelInterview={cancelInterview}
         />)
-  })
+    })
 
   return (
     <main className="layout">

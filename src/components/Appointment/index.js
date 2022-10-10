@@ -72,7 +72,7 @@ export default function Appointment(props) {
             onSave={save}
           />
         )}
-        {mode === CONFIRM &&(<Confirm onCancel={() => back()} onDelete={cancel} id={props.id} />)}
+        {mode === CONFIRM && (<Confirm onCancel={() => back()} onDelete={cancel} id={props.id} />)}
         {mode === SAVING && (<Status message="Saving..." />)}
         {mode === DELETING && (<Status message="Deleting..." />)}
         {mode === ERROR_SAVE && (<Error onClose={() => props.interview ? transition(SHOW) : transition(EMPTY)} message="Failed to save appointment. Please try again." />)}
