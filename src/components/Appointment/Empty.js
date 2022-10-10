@@ -1,5 +1,7 @@
 import React from 'react';
 
+// empty and available apointment tile component
+
 export default function Empty(props) {
   return (
     <main className="appointment__add">

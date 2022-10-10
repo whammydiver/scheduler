@@ -1,5 +1,9 @@
 import React from 'react';
 
+// conditionally rendered component when server communication is unavailable. Returns
+// contextual message depending upon whether the error occurred while saving a new or 
+// modified appointment, or deleting a previously recorded appointment
+
 export default function Error(props) {
   return (
     <main className="appointment__card appointment__card--error">

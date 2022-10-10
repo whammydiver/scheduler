@@ -3,6 +3,9 @@ import "./styles.scss";
 import InterviewerList from "../InterviewerList";
 import Button from "../Button.js";
 
+// input form captures details of student name and the interviewer they wish to
+// book the appointment with. Contains logic to ensure no appoinments are saved
+// with incomplete student/interviewer information. 
 
 export default function Form(props) {
 

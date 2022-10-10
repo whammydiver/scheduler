@@ -1,5 +1,7 @@
 import React from 'react';
 
+// component displays existing appointment information.
+
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">

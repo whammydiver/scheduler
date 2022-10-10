@@ -1,5 +1,8 @@
 import React from 'react';
 
+// placeholder component displayed during server communication. Displays
+// contextual message of "Saving..." or "Deleting..." when presented.
+
 export default function Status(props) {
   return (
     <main className="appointment__card appointment__card--status">

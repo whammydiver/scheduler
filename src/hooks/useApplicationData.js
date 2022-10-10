@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function useApplicationData() {
 
+  // updated spots remaining counter in each day element
   function remainingSpots(dayObject, appointments) {
     let count = 0;
     for (let x = dayObject.appointments[0]; x <= dayObject.appointments[dayObject.appointments.length - 1]; x++) {
@@ -14,6 +15,7 @@ export default function useApplicationData() {
     return count;
   }
 
+  // rebuilds state mapping of a given day's appointments after one is created or deleted
   function newDays(id, appointments) {
     const newDaysArray = state.days.map((day) => {
       if (day.appointments.includes(id)) {
@@ -34,6 +36,7 @@ export default function useApplicationData() {
 
   const setDay = day => setState(prev => ({ ...prev, day }));
 
+  // **** primary API call to server to update state with current server data
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
@@ -44,6 +47,7 @@ export default function useApplicationData() {
     })
   }, []);
 
+  // books interview through API call to server and updates application state to reflect server details.
   const bookInterview = function (id, interview) {
     return axios.put(`/api/appointments/${id}`, { interview })
       .then(() => {
@@ -60,6 +64,7 @@ export default function useApplicationData() {
       })
   }
 
+  // cancels interview through API call to server and updates application state to reflect server details.
   const cancelInterview = function (id) {
     return axios.delete(`/api/appointments/${id}`)
       .then(() => {

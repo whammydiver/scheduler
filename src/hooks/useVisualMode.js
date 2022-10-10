@@ -1,5 +1,9 @@
 import { useState } from 'react';
 
+
+// state driven tracker of currently required component for any given workflow (i.e. creating, editing or deleting
+// an appointment)
+
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);

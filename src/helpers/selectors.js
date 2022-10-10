@@ -1,3 +1,4 @@
+// 
 export function getAppointmentsForDay(state, day) {
   const dayDetails = [];
   for (let eachDay of state.days) {

@@ -9,6 +9,10 @@ import Confirm from "./Confirm";
 import Error from "./Error";
 import useVisualMode from "hooks/useVisualMode";
 
+// this file manages the conditional rendering of each appointment component based on the transition
+// status. Ensures the correct progression from empty/reserved item -> add/edit item -> save/cancel 
+// components as required. 
+
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
@@ -72,7 +76,7 @@ export default function Appointment(props) {
             onSave={save}
           />
         )}
-        {mode === CONFIRM && (<Confirm onCancel={() => back()} onDelete={cancel} id={props.id} />)}
+        {mode === CONFIRM && (<Confirm onCancel={() => back()} onDelete={cancel} id={props.id} message="Are you sure you want to cancel this appointment?" />)}
         {mode === SAVING && (<Status message="Saving..." />)}
         {mode === DELETING && (<Status message="Deleting..." />)}
         {mode === ERROR_SAVE && (<Error onClose={() => props.interview ? transition(SHOW) : transition(EMPTY)} message="Failed to save appointment. Please try again." />)}

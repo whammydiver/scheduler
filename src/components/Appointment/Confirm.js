@@ -1,6 +1,7 @@
 import React from 'react';
-
 import Button from "../Button";
+
+// conditionally rendered tile to confirm or cancel an appointment delete request
 
 export default function Confirm(props) {
   return (
